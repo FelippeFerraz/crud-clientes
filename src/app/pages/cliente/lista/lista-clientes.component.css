@@ -1,0 +1,17 @@
+.tabela-clientes th{
+  background-color: var(--bs-primary);
+  color: #f1f1f1;
+  font-weight: 600;
+}
+
+.tabela-clientes tr td:last-child, .tabela-clientes tr th:last-child {
+  width: 170px;
+  text-align: center;
+}
+
+.tabela-clientes__acoes{
+  display: flex;
+  justify-content: space-between;
+}
+
+

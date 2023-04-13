@@ -1,0 +1,42 @@
+<div class="container">
+
+  <app-header subtitulo="Lista de clientes">
+    <a class="btn btn-outline-primary" [routerLink]="linkTelaCadastro" role="button">Cadastrar novo cliente</a>
+  </app-header>
+
+  <div class="row">
+    <div class="col-12">
+
+      <table class="tabela-clientes table table-striped">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>CPF</th>
+            <th>Rua</th>
+            <th>N°</th>
+            <th>CEP</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let cliente of clientes">
+            <td>{{cliente.nome}}</td>
+            <td>{{cliente.cpf}}</td>
+            <td>{{cliente.endereco.rua}}</td>
+            <td>{{cliente.endereco.numero}}</td>
+            <td>{{cliente.endereco.cep}}</td>
+            <td>
+              <div class="tabela-clientes__acoes">
+                <button (click)="editarCliente(cliente.cpf)" class="btn btn-outline-primary">Editar</button>
+                <button (click)="excluirCliente(cliente.cpf)" class="btn btn-outline-danger">Excluir</button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</div>
+

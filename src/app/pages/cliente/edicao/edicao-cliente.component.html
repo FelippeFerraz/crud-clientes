@@ -1,0 +1,13 @@
+<div class="container">
+
+  <app-header subtitulo="Atualização de cliente">
+    <a class="btn btn-outline-primary" routerLink="/" role="button">Home</a>
+  </app-header>
+
+  <div class="row">
+    <div class="col-md-6 col-xs-12 offset-md-3">
+      <app-cliente-form [cliente]="cliente" [update]="true" (formSubmit)="onSubmit($event)"></app-cliente-form>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,21 @@
+.jumbotron{
+  padding: 12px 24px;
+  background-color: #f1f1f1;
+  border-bottom-left-radius: 9px;
+  border-bottom-right-radius: 9px;
+  margin-bottom: 32px;
+}
+
+.jumbotron .lead{
+  font-weight: 500;
+  color: #141414;
+}
+
+.jumbotron h1.display-4{
+  font-weight: 500;
+  color: #141414;
+}
+
+hr.my-4{
+  margin-bottom: 16px !important;
+}

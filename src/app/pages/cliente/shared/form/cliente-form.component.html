@@ -1,0 +1,81 @@
+<form [formGroup]="formCliente" (ngSubmit)="onFormSubmit()">
+  <div class="row">
+    <h4 class="mb-3">Dados pessoais</h4>
+
+    <div class="col-12 mb-3">
+      <label>Nome</label>
+      <input [ngClass]="{'form-control': true, 'is-invalid': isValidField('nome')}" formControlName="nome" type="text" placeholder="Digite o nome do cliente">
+      <small class="text-danger" *ngIf="isValidField('nome')">Preencha o nome do cliente</small>
+    </div>
+
+    <div class="col-6 mb-3">
+      <label>CPF</label>
+
+      <ng-container *ngIf="!update; else cpfLabel">
+        <input [textMask]="{mask: mascaraCPF}" [ngClass]="{'form-control': true, 'is-invalid': isValidField('cpf')}" formControlName="cpf" type="text" placeholder="Digite o CPF do cliente">
+        <small class="text-danger" *ngIf="isValidField('cpf')">Preencha corretamente cpf do cliente</small>
+      </ng-container>
+
+      <ng-template #cpfLabel>
+        <label class="cpf-readonly-label">{{formCliente.controls['cpf'].value}}</label>
+      </ng-template>
+
+
+    </div>
+
+    <div class="col-6 mb-3">
+      <label>Telefone</label>
+      <input [textMask]="{mask: mascaraTelefone}" [ngClass]="{'form-control': true, 'is-invalid': isValidField('telefone')}" formControlName="telefone" type="text" placeholder="xx xxxx-xxxx">
+      <small class="text-danger" *ngIf="isValidField('telefone')">Preencha o telefone do cliente</small>
+    </div>
+
+    <div class="col-6 mb-3">
+      <label>Rendimento Mensal</label>
+      <input [ngClass]="{'form-control': true, 'is-invalid': isValidField('rendimentoMensal')}" formControlName="rendimentoMensal" type="number">
+      <small class="text-danger" *ngIf="isValidField('rendimentoMensal')">Preencha o Rendimento mensal do cliente</small>
+    </div>
+
+    <div class="col-6 mb-3">
+      <label>Nível de relacionamento</label>
+      <select name="nivelRelacionamento" [ngClass]="{'form-control': true, 'is-invalid': isValidField('relacionamento')}" formControlName="relacionamento">
+        <option value="BRONZE">Bronze</option>
+        <option value="PRATA">Prata</option>
+        <option value="OURO">Ouro</option>
+      </select>
+      <small class="text-danger" *ngIf="isValidField('relacionamento')">Selecione um nível</small>
+    </div>
+
+    <h4 class="mb-3 mt-2">Endereço</h4>
+
+    <ng-container formGroupName="endereco">
+
+      <div class="col-6 mb-3">
+        <label>Logradouro</label>
+        <input [ngClass]="{'form-control': true, 'is-invalid': isValidField('rua', true)}" formControlName="rua" placeholder="Av. Brasil" type="text">
+        <small class="text-danger" *ngIf="isValidField('rua', true)">Preencha o campo de logradouro</small>
+      </div>
+
+      <div class="col-4 mb-3">
+        <label>CEP</label>
+        <input [textMask]="{mask: mascaraCEP}" [ngClass]="{'form-control': true, 'is-invalid': isValidField('cep', true)}" formControlName="cep" placeholder="xxxxx-xxx" type="text">
+        <small class="text-danger" *ngIf="isValidField('cep', true)">Preencha o campo de CEP</small>
+      </div>
+
+      <div class="col-2 mb-3">
+        <label>Número</label>
+        <input [ngClass]="{'form-control': true, 'is-invalid': isValidField('numero', true)}" formControlName="numero" placeholder="xxx" type="text">
+        <small class="text-danger" *ngIf="isValidField('numero', true)">Preencha o campo de número</small>
+      </div>
+
+    </ng-container>
+
+    <div class="col-12 mt-3 d-flex justify-content-end">
+      <button class="btn btn-outline-success">{{confirmButtonText}}</button>
+    </div>
+
+
+  </div>
+
+
+
+</form>
